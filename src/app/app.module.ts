@@ -1,16 +1,80 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, Injector, NgModule} from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { BaseCustomFormComponent } from './form-components/base-custom-form/base-custom-form.component';
+import {NewPartnerRequestFormComponent} from './form-components/new-partner-request-form/new-partner-request-form.component';
+import {createCustomElement} from '@angular/elements';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {
+  MatButtonModule,
+  MatCardModule,
+  MatDialogModule, MatIconModule, MatInputModule, MatListModule,
+  MatMenuModule,
+  MatOptionModule,
+  MatSelectModule,
+  MatToolbarModule,
+  MatTooltipModule
+} from '@angular/material';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material';
+import {MatCheckboxModule} from '@angular/material';
+import {ScrollingModule} from '@angular/cdk/scrolling';
+import {FlexLayoutModule} from '@angular/flex-layout';
+import {FORM_REGISTRY, FormViewerComponent} from './form-components/form-viewer/form-viewer.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BaseCustomFormComponent,
+    NewPartnerRequestFormComponent,
+    FormViewerComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    MatButtonModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatIconModule,
+    MatMenuModule,
+    MatSelectModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatListModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatDialogModule,
+    MatMenuModule,
+    MatCardModule,
+    MatTooltipModule,
+    FormsModule,
+    FlexLayoutModule,
+    ScrollingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
-  bootstrap: [AppComponent]
+  /*bootstrap: [AppComponent],*/
+  entryComponents: [
+    FormViewerComponent, NewPartnerRequestFormComponent
+  ]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private injector: Injector) {
+  }
+
+  ngDoBootstrap() {
+    const el = createCustomElement(FormViewerComponent,
+      { injector: this.injector });
+    customElements.define('custom-form', el);
+  }
+}

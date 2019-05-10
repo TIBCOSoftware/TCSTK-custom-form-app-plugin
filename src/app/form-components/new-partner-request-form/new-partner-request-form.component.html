@@ -1,0 +1,43 @@
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form" fxLayout="column">
+
+  <mat-form-field class="form-element">
+    <input matInput placeholder="Product Details"  formControlName="ProductDetails_v1">
+  </mat-form-field>
+
+  <div [formGroup]="partnerRequestFG" fxLayout="column">
+
+
+    <div [formGroup]="caseMetricsFG" fxLayout="column">
+
+      <mat-form-field>
+        <input matInput class="form-element" placeholder="Priority" formControlName="Priority_v1" type="number">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput class="form-element" placeholder="Due Date" formControlName="DueDate_v1" type="date">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput class="form-element" placeholder="Request Owner" formControlName="Owner_v1">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput class="form-element" placeholder="Request Owner Email" formControlName="RequestOwnerEmail_v1" type="email">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput class="form-element" placeholder="Request Owner SMS" formControlName="RequestOwnerSMS_v1" type="text">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput class="form-element" placeholder="Partner Contact Email" formControlName="PartnerContactEmail_v1" type="email">
+      </mat-form-field>
+    </div>
+
+  </div>
+
+  <div class="form-element">
+    <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!formGroup.valid">Submit Form</button>
+  </div>
+
+</form>
