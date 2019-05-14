@@ -1,2 +1,2 @@
-<custom-form (formSubmitted)="handleSubmit($event)"></custom-form>
-
+<!--custom-form (formSubmitted)="handleSubmit($event)"></custom-form-->
+<app-form-viewer [formRef]="formRef" [data]="data" (formSubmitted)="handleSubmit($event)"></app-form-viewer>

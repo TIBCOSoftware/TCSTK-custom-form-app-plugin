@@ -36,8 +36,8 @@ export class FormViewerComponent implements OnInit {
 
   @ViewChild('customFormContainer', { read: ViewContainerRef }) container;
 
-  @Input() formId: string;
   @Input() data: any;
+  @Input() formRef: string;
   @Output() formSubmitted: EventEmitter<any> = new EventEmitter<any>();
 
   constructor(private resolver: ComponentFactoryResolver, private injector: Injector, private location: ViewContainerRef) { }
@@ -51,10 +51,10 @@ export class FormViewerComponent implements OnInit {
     this.container.clear();
     // get the correct for from the library
     let selectedFormRec: FormRecord = FORM_REGISTRY.find((form) => {
-      return form.id === this.formId;
+      return form.id === this.formRef;
     });
     if (!selectedFormRec) {
-      // use default
+      // show error form
       selectedFormRec = FORM_REGISTRY.find((form) => {
         return form.id === 'default';
       });

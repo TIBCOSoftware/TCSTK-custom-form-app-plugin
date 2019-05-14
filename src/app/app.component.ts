@@ -7,8 +7,11 @@ import {Component, EventEmitter, Input, Output, ViewEncapsulation} from '@angula
 })
 export class AppComponent {
 
+  data: any = {};
+  formRef = 'Partner Request.PartnerRequest.creator.New Product Notification';
+
   handleSubmit = (data) => {
-    console.log(data);
+    console.log('Form submitted!: ', data);
   }
 
 }

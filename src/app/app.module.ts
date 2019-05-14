@@ -9,10 +9,14 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
   MatButtonModule,
   MatCardModule,
-  MatDialogModule, MatIconModule, MatInputModule, MatListModule,
-  MatMenuModule,
+  MatDatepickerModule,
+  MatDialogModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatMenuModule, MatNativeDateModule,
   MatOptionModule,
-  MatSelectModule,
+  MatSelectModule, MatSliderModule, MatStepperModule,
   MatToolbarModule,
   MatTooltipModule
 } from '@angular/material';
@@ -55,6 +59,9 @@ import {FORM_REGISTRY, FormViewerComponent} from './form-components/form-viewer/
     MatMenuModule,
     MatCardModule,
     MatTooltipModule,
+    MatStepperModule,
+    MatSliderModule,
+    MatDatepickerModule,
     FormsModule,
     FlexLayoutModule,
     ScrollingModule,
