@@ -66,7 +66,8 @@ import {FORM_REGISTRY, FormViewerComponent} from './form-components/form-viewer/
     FlexLayoutModule,
     ScrollingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatNativeDateModule
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
