@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import {CUSTOM_ELEMENTS_SCHEMA, Injector, NgModule} from '@angular/core';
 
-import { AppComponent } from './app.component';
 import { BaseCustomFormComponent } from './form-components/base-custom-form/base-custom-form.component';
 import {NewPartnerRequestFormComponent} from './form-components/new-partner-request-form/new-partner-request-form.component';
 import {createCustomElement} from '@angular/elements';
@@ -26,6 +25,10 @@ import {MatCheckboxModule} from '@angular/material';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {FORM_REGISTRY, FormViewerComponent} from './form-components/form-viewer/form-viewer.component';
+import { PartnerRequestCasedataComponent } from './form-components/partner-request-casedata/partner-request-casedata.component';
+import {UpdateRequestMetricsFormComponent} from './form-components/update-request-metrics-form/update-request-metrics-form.component';
+import {AppComponent} from './app.component';
+
 
 
 @NgModule({
@@ -33,7 +36,9 @@ import {FORM_REGISTRY, FormViewerComponent} from './form-components/form-viewer/
     AppComponent,
     BaseCustomFormComponent,
     NewPartnerRequestFormComponent,
-    FormViewerComponent
+    FormViewerComponent,
+    PartnerRequestCasedataComponent,
+    UpdateRequestMetricsFormComponent
   ],
   imports: [
     BrowserModule,
@@ -73,16 +78,23 @@ import {FORM_REGISTRY, FormViewerComponent} from './form-components/form-viewer/
   providers: [],
   /*bootstrap: [AppComponent],*/
   entryComponents: [
-    FormViewerComponent, NewPartnerRequestFormComponent
+    BaseCustomFormComponent, FormViewerComponent, NewPartnerRequestFormComponent, PartnerRequestCasedataComponent, UpdateRequestMetricsFormComponent
   ]
 })
 export class AppModule {
+
   constructor(private injector: Injector) {
   }
 
   ngDoBootstrap() {
-    const el = createCustomElement(FormViewerComponent,
-      { injector: this.injector });
-    customElements.define('custom-form', el);
+    if (!customElements.get('custom-form')) {
+      console.log('bootstrapping');
+      console.log(customElements);
+      const el = createCustomElement(FormViewerComponent,
+        {injector: this.injector});
+      customElements.define('custom-form', el);
+    } else {
+      console.log('already bootstrapped');
+    }
   }
 }

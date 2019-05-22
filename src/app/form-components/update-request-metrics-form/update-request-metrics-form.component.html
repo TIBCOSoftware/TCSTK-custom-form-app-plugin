@@ -1,0 +1,119 @@
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form" fxLayout="column">
+
+  <mat-toolbar style="margin-bottom: 5px;">Update Request Metrics</mat-toolbar>
+
+  <div [formGroup]="partnerRequestFG">
+    <mat-form-field fxFlex>
+      <input matInput class="form-element" placeholder="Request Type" formControlName="RequestType_v1">
+    </mat-form-field>
+
+    <mat-form-field fxFlex>
+      <input matInput class="form-element" placeholder="Request Description" formControlName="RequestDescription_v1">
+    </mat-form-field>
+  </div>
+
+  <div [formGroup]="customerFG" fxLayout="column">
+
+    <h2>Customer Info</h2>
+
+    <mat-form-field fxFlex>
+      <input matInput class="form-element" placeholder="Customer Name" formControlName="Name_v1">
+    </mat-form-field>
+
+    <mat-form-field fxFlex>
+      <input matInput class="form-element" placeholder="Customer Reference" formControlName="CustomerReference_v1">
+    </mat-form-field>
+
+    <mat-form-field fxFlex>
+      <input matInput class="form-element" placeholder="Customer Details Extract" formControlName="CustomerDetailsExtract_v1">
+    </mat-form-field>
+
+    <mat-form-field fxFlex>
+      <input matInput class="form-element" placeholder="Customer Email" formControlName="CustomerEmail_v1">
+    </mat-form-field>
+
+  </div>
+
+  <div [formGroup]="requestDetailsFG" fxLayout="column">
+
+    <h2>Request Details</h2>
+
+    <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+      <mat-form-field fxFlex>
+        <input matInput class="form-element" placeholder="Part Reference" formControlName="PartReference_v1">
+      </mat-form-field>
+
+      <mat-form-field fxFlex>
+        <input matInput class="form-element" placeholder="Part Name" formControlName="PartName_v1">
+      </mat-form-field>
+
+      <mat-form-field fxFlex>
+        <input matInput class="form-element" placeholder="Part Description" formControlName="PartDescription_v1">
+      </mat-form-field>
+
+      <mat-form-field fxFlex>
+        <input matInput class="form-element" placeholder="Order Reference" formControlName="OrderReference_v1">
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div [formGroup]="caseMetricsFG" fxLayout="column">
+
+    <h2>Case Metrics</h2>
+
+    <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+
+      <mat-form-field fxFlex>
+        <mat-label>Priority</mat-label>
+        <mat-select formControlName="Priority_v1">
+          <mat-option [value]=1>
+            {{1}}
+          </mat-option>
+          <mat-option [value]=2>
+            {{2}}
+          </mat-option>
+          <mat-option [value]=3>
+            {{3}}
+          </mat-option>
+          <mat-option [value]=4>
+            {{4}}
+          </mat-option>
+          <mat-option [value]=5>
+            {{5}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field fxFlex>
+        <input matInput [matDatepicker]="picker" class="form-element" placeholder="Due Date" formControlName="DueDate_v1">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <!--input matInput class="form-element" placeholder="Due Date" formControlName="DueDate_v1" type="date"-->
+      </mat-form-field>
+
+    </div>
+
+    <mat-form-field fxFlex>
+      <input matInput class="form-element" placeholder="Request Owner" formControlName="Owner_v1">
+    </mat-form-field>
+
+    <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+      <mat-form-field fxFlex>
+        <input matInput class="form-element" placeholder="Request Owner Email" formControlName="RequestOwnerEmail_v1" type="email">
+      </mat-form-field>
+
+      <mat-form-field fxFlex>
+        <input matInput class="form-element" placeholder="Request Owner SMS" formControlName="RequestOwnerSMS_v1" type="text">
+      </mat-form-field>
+    </div>
+
+    <mat-form-field>
+      <input matInput class="form-element" placeholder="Partner Contact Email" formControlName="PartnerContactEmail_v1" type="email">
+    </mat-form-field>
+  </div>
+
+  <div class="form-element">
+    <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!formGroup.valid">Submit Form</button>
+  </div>
+
+</form>
