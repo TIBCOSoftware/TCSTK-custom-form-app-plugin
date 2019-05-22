@@ -14,7 +14,7 @@ import {
   MatInputModule,
   MatListModule,
   MatMenuModule, MatNativeDateModule,
-  MatOptionModule,
+  MatOptionModule, MatProgressSpinnerModule,
   MatSelectModule, MatSliderModule, MatStepperModule,
   MatToolbarModule,
   MatTooltipModule
@@ -72,7 +72,8 @@ import {AppComponent} from './app.component';
     ScrollingModule,
     FormsModule,
     ReactiveFormsModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatProgressSpinnerModule
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA],
   providers: [],

@@ -92,6 +92,7 @@ export class FormViewerComponent implements OnInit, OnChanges {
   @Output() formSubmitted: EventEmitter<any> = new EventEmitter<any>();
 
   componentRef;
+  submitted = false;
 
   constructor(private resolver: ComponentFactoryResolver, private injector: Injector, private location: ViewContainerRef) { }
 
@@ -121,6 +122,7 @@ export class FormViewerComponent implements OnInit, OnChanges {
       this.componentRef.instance.data = this.data;
       // output mapping
       this.componentRef.instance.formSubmitted.subscribe(data => {
+        this.submitted = true;
         this.formSubmitted.emit(data);
       });
     } else if (changes.data && !changes.data.firstChange) {

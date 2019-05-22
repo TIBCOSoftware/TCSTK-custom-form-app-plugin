@@ -1,3 +1,6 @@
-<div style="margin: 30px">
-  <template #customFormContainer></template>
+<div fxFill style="margin: 30px">
+  <template *ngIf="!submitted" #customFormContainer></template>
+  <div *ngIf="submitted" fxLayout="row" fxLayoutAlign="center center">
+    <mat-progress-spinner [mode]="'indeterminate'"></mat-progress-spinner>
+  </div>
 </div>

@@ -3,8 +3,14 @@
   <mat-toolbar style="margin-bottom: 5px;">Update Request Metrics</mat-toolbar>
 
   <div [formGroup]="partnerRequestFG">
+
     <mat-form-field fxFlex>
-      <input matInput class="form-element" placeholder="Request Type" formControlName="RequestType_v1">
+      <mat-label>Request Type</mat-label>
+      <mat-select formControlName="RequestType_v1">
+        <mat-option *ngFor="let reqType of reqTypeEnum" [value]="reqType">
+          {{reqType}}
+        </mat-option>
+      </mat-select>
     </mat-form-field>
 
     <mat-form-field fxFlex>

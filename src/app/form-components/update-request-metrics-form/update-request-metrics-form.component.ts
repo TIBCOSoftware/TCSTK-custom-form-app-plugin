@@ -18,6 +18,18 @@ export class UpdateRequestMetricsFormComponent extends BaseCustomFormComponent i
   customerFG: FormGroup;
   caseMetricsFG: FormGroup;
   requestDetailsFG: FormGroup;
+  reqTypeEnum = [
+    'Account Enquiry',
+    'Shipping & Tracking',
+    'Packaging Supplies',
+    'Rates & Transit Times',
+    'Invoice & Payments',
+    'Order Enquiry',
+    'Product Details Enquiry',
+    'Open an Account',
+    'General Enquiry',
+    'Claims'
+    ];
 
   populateForm = () => {
 
@@ -30,7 +42,7 @@ export class UpdateRequestMetricsFormComponent extends BaseCustomFormComponent i
         RequestOwnerSMS_v1: this.getDeepVal(this.data, 'PartnerRequest.CaseMetrics_v1.RequestOwnerSMS_v1'),
         PartnerContactEmail_v1: this.getDeepVal(this.data, 'PartnerRequest.CaseMetrics_v1.PartnerContactEmail_v1')
       }
-    )
+    );
 
     this.customerFG = this.formBuilder.group(
       {
@@ -39,7 +51,7 @@ export class UpdateRequestMetricsFormComponent extends BaseCustomFormComponent i
         CustomerDetailsExtract_v1: this.getDeepVal(this.data, 'PartnerRequest.Customer_v1.CustomerDetailsExtract_v1'),
         CustomerEmail_v1: this.getDeepVal(this.data, 'PartnerRequest.Customer_v1.CustomerEmail_v1')
       }
-    )
+    );
 
     this.requestDetailsFG = this.formBuilder.group(
       {
@@ -48,11 +60,11 @@ export class UpdateRequestMetricsFormComponent extends BaseCustomFormComponent i
         PartDescription_v1: this.getDeepVal(this.data, 'PartnerRequest.RequestDetails_v1.PartDescription_v1'),
         OrderReference_v1: this.getDeepVal(this.data, 'PartnerRequest.RequestDetails_v1.OrderReference_v1'),
       }
-    )
+    );
 
     this.partnerRequestFG = this.formBuilder.group({
-        // RequestDescription_v1: this.data.PartnerRequest.RequestDescription_v1,
-        RequestType_v1: this.data.PartnerRequest.RequestType_v1,
+        RequestDescription_v1: this.getDeepVal(this.data, 'PartnerRequest.RequestDescription_v1'),
+        RequestType_v1: this.getDeepVal(this.data, 'PartnerRequest.RequestType_v1'),
         Customer_v1: this.customerFG,
         RequestDetails_v1: this.requestDetailsFG,
         CaseMetrics_v1: this.caseMetricsFG
