@@ -1,0 +1,8 @@
+:host ::ng-deep .tcs-form-button:hover path.svg-content {
+  cursor: pointer;
+}
+
+.tcs-form-button {
+  height: 14px;
+  width: 14px;
+}

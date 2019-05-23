@@ -1,5 +1,5 @@
 <div fxFill style="margin: 30px">
-  <template *ngIf="!submitted" #customFormContainer></template>
+  <template class="custom-form-div" #customFormContainer [ngClass]="{ 'hidden-form' : submitted }"></template>
   <div *ngIf="submitted" fxLayout="row" fxLayoutAlign="center center">
     <mat-progress-spinner [mode]="'indeterminate'"></mat-progress-spinner>
   </div>

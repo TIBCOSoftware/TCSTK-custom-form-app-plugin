@@ -5,7 +5,8 @@ import {BaseCustomFormComponent} from '../base-custom-form/base-custom-form.comp
 @Component({
   selector: 'app-new-partner-request-form',
   templateUrl: './new-partner-request-form.component.html',
-  styleUrls: ['./new-partner-request-form.component.css']
+  styleUrls: ['./new-partner-request-form.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class NewPartnerRequestFormComponent extends BaseCustomFormComponent implements OnInit {
 

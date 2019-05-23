@@ -1,0 +1,3 @@
+.custom-form-div.hidden-form + * {
+  display: none;
+}

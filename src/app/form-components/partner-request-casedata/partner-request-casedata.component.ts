@@ -5,7 +5,8 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 @Component({
   selector: 'app-partner-request-casedata',
   templateUrl: './partner-request-casedata.component.html',
-  styleUrls: ['./partner-request-casedata.component.css']
+  styleUrls: ['./partner-request-casedata.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class PartnerRequestCasedataComponent extends BaseCustomFormComponent implements OnInit {
 

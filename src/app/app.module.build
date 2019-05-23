@@ -77,7 +77,7 @@ import {AppComponent} from './app.component';
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
-  bootstrap: [AppComponent],
+  /*bootstrap: [AppComponent],*/
   entryComponents: [
     BaseCustomFormComponent, FormViewerComponent, NewPartnerRequestFormComponent, PartnerRequestCasedataComponent, UpdateRequestMetricsFormComponent
   ]
@@ -94,7 +94,7 @@ export class AppModule {
     );
   }
 
-  /*ngDoBootstrap() {
+  ngDoBootstrap() {
     if (!customElements.get('custom-form')) {
       console.log('bootstrapping');
       console.log(customElements);
@@ -104,5 +104,5 @@ export class AppModule {
     } else {
       console.log('already bootstrapped');
     }
-  }*/
+  }
 }

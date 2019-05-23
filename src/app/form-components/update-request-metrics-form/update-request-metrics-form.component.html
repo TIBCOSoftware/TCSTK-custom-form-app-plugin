@@ -1,4 +1,4 @@
-<form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form" fxLayout="column">
+<form [formGroup]="formGroup" class="form" fxLayout="column">
 
   <mat-toolbar style="margin-bottom: 5px;">Update Request Metrics</mat-toolbar>
 
@@ -60,6 +60,25 @@
       <mat-form-field fxFlex>
         <input matInput class="form-element" placeholder="Order Reference" formControlName="OrderReference_v1">
       </mat-form-field>
+
+    </div>
+    <div>
+      <div formArrayName="IssueLog_v1" *ngIf="issueLogs.controls" fxLayout="column">
+        <h3>Issue Log</h3>
+        <div *ngFor="let item of issueLogs.controls ; let issueEntryIndex=index" [formGroupName]="issueEntryIndex">
+          <mat-form-field fxFlex>
+            <input matInput class="form-element" placeholder="Log Entry" formControlName="LogEntry_v1">
+          </mat-form-field>
+          <button mat-icon-button  (click)="deleteLogEntry(issueEntryIndex)">
+            <mat-icon class="tcs-form-button" [svgIcon]="'tcs-close-icon'"></mat-icon>
+          </button>
+        </div>
+        <div fxFlex fxLayout="row" fxLayoutAlign="end end">
+          <button mat-button (click)="addLogEntry()">
+            Add log entry
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -119,7 +138,7 @@
   </div>
 
   <div class="form-element">
-    <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!formGroup.valid">Submit Form</button>
+    <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!formGroup.valid" (click)="onSubmit(formGroup.value)">Submit Form</button>
   </div>
 
 </form>

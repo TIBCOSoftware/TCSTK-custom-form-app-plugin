@@ -1,11 +1,12 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {BaseCustomFormComponent} from '../base-custom-form/base-custom-form.component';
 
 @Component({
   selector: 'app-update-request-metrics-form',
   templateUrl: './update-request-metrics-form.component.html',
-  styleUrls: ['./update-request-metrics-form.component.css']
+  styleUrls: ['./update-request-metrics-form.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class UpdateRequestMetricsFormComponent extends BaseCustomFormComponent implements OnInit {
 
@@ -13,11 +14,15 @@ export class UpdateRequestMetricsFormComponent extends BaseCustomFormComponent i
     super();
   }
 
+  // form groups
   formGroup: FormGroup;
   partnerRequestFG: FormGroup;
   customerFG: FormGroup;
   caseMetricsFG: FormGroup;
   requestDetailsFG: FormGroup;
+  issueLogFG: FormGroup;
+
+  // enums
   reqTypeEnum = [
     'Account Enquiry',
     'Shipping & Tracking',
@@ -30,6 +35,31 @@ export class UpdateRequestMetricsFormComponent extends BaseCustomFormComponent i
     'General Enquiry',
     'Claims'
     ];
+
+  get issueLogs() {
+    return this.requestDetailsFG.get('IssueLog_v1') as FormArray;
+  }
+
+  get logEntries() {
+    const fg: FormGroup[] = [];
+    const entries = this.getDeepVal(this.data, 'PartnerRequest.RequestDetails_v1.IssueLog_v1');
+    if (entries && entries.length > 0) {
+      entries.forEach((entry => {
+        fg.push(this.formBuilder.group({
+          LogEntry_v1: entry.LogEntry_v1
+        }));
+      }));
+    }
+    return fg;
+  }
+
+  addLogEntry() {
+    this.issueLogs.push(this.formBuilder.group({LogEntry_v1: ''}));
+  }
+
+  deleteLogEntry(index) {
+    this.issueLogs.removeAt(index);
+  }
 
   populateForm = () => {
 
@@ -59,6 +89,7 @@ export class UpdateRequestMetricsFormComponent extends BaseCustomFormComponent i
         PartName_v1: this.getDeepVal(this.data, 'PartnerRequest.RequestDetails_v1.PartName_v1'),
         PartDescription_v1: this.getDeepVal(this.data, 'PartnerRequest.RequestDetails_v1.PartDescription_v1'),
         OrderReference_v1: this.getDeepVal(this.data, 'PartnerRequest.RequestDetails_v1.OrderReference_v1'),
+        IssueLog_v1: this.formBuilder.array(this.logEntries)
       }
     );
 

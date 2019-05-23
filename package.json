@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build:elements": "ng build custom-form-app --prod --output-hashing=none && node build-elements.js"
+    "build:elements": "cp ./src/app/app.module.build ./src/app/app.module.ts; ng build custom-form-app --prod --output-hashing=none && node build-elements.js; cp ./src/app/app.module.dev ./src/app/app.module.ts"
   },
   "private": true,
   "dependencies": {

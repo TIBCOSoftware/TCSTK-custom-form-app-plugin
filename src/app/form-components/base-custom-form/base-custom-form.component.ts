@@ -32,5 +32,6 @@ export class BaseCustomFormComponent {
   public onSubmit = (formdata: any) => {
     console.log('Source event fired');
     this.formSubmitted.emit(formdata);
+    console.log(formdata);
   }
 }

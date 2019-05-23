@@ -38,7 +38,8 @@ export const FORM_REGISTRY = [
 @Component({
   selector: 'app-form-viewer',
   templateUrl: './form-viewer.component.html',
-  styleUrls: ['./form-viewer.component.css']
+  styleUrls: ['./form-viewer.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 
 export class FormViewerComponent implements OnInit, OnChanges {
