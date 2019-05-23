@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, Output, ViewEncapsulation} from '@angular/core';
+import { FORM_REGISTRY } from './form-components/form-viewer/form-viewer.component';
 
 
 @Component({
@@ -8,9 +9,11 @@ import {Component, EventEmitter, Input, Output, ViewEncapsulation} from '@angula
 })
 export class AppComponent {
 
+  formRegistry = FORM_REGISTRY;
   ref: string = 'Partner Request.PartnerRequest.action.Update Request Metrics';
   data: any;
-  dataJSON = '{"PartnerRequest": {"CaseMetrics_v1":{"Priority_v1":4,"DueDate_v1":"2019-05-22","Owner_v1":"jon@tibco.com","RequestOwnerEmail_v1":"jon@tibco.com","RequestOwnerSMS_v1":"55555","PartnerContactEmail_v1":"jon@tibco.com"},"state":"Created","PartnerReference_v1":"99000123","CaseId_v1":"PNR-74","Customer_v1":{"Name_v1":"Jon Werst","CustomerReference_v1":"Ref 1111","CustomerDetailsExtract_v1":"Customer 123","CustomerEmail_v1":"customer@customer.com"},"RequestDetails_v1":{"PartReference_v1":"Part-1","PartName_v1":"Part 1","PartDescription_v1":"A part","OrderReference_v1":"Order 1"},"RequestType_v1":"Account Enquiry"}}';
+  dataJSON = '{"PartnerRequest":{}}';
+  // dataJSON = '{"PartnerRequest": {"CaseMetrics_v1":{"Priority_v1":4,"DueDate_v1":"2019-05-22","Owner_v1":"jon@tibco.com","RequestOwnerEmail_v1":"jon@tibco.com","RequestOwnerSMS_v1":"55555","PartnerContactEmail_v1":"jon@tibco.com"},"state":"Created","PartnerReference_v1":"99000123","CaseId_v1":"PNR-74","Customer_v1":{"Name_v1":"Jon Werst","CustomerReference_v1":"Ref 1111","CustomerDetailsExtract_v1":"Customer 123","CustomerEmail_v1":"customer@customer.com"},"RequestDetails_v1":{"PartReference_v1":"Part-1","PartName_v1":"Part 1","PartDescription_v1":"A part","OrderReference_v1":"Order 1"},"RequestType_v1":"Account Enquiry"}}';
   submittedData: string;
 
   // ref = 'Partner Request.PartnerRequest.creator.New Product Notification';

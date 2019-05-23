@@ -7,8 +7,17 @@
     <hr>
   </div>
   <div *ngIf="!data || !ref" fxLayout="column">
+
+
       <mat-form-field>
-        <input matInput class="form-element" placeholder="Form Key" [(ngModel)]="ref">
+
+        <mat-label>Form Ref</mat-label>
+        <mat-select [(value)]="ref">
+          <mat-option *ngFor="let formRef of formRegistry" [value]="formRef.id">
+            {{formRef.id}}
+          </mat-option>
+        </mat-select>
+        <!--input matInput class="form-element" placeholder="Form Key" [(ngModel)]="ref"-->
       </mat-form-field>
 
       <mat-form-field>
