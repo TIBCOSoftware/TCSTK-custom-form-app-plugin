@@ -1,6 +1,25 @@
-<!--custom-form form-app="''" [formRef]="ref" [data]="data" (formSubmitted)="handleSubmit($event)"></custom-form-->
-<app-form-viewer form-app="''" [formRef]="ref" [data]="data" (formSubmitted)="handleSubmit($event)"></app-form-viewer>
-<!--app-form-viewer [formRef]="formRef" [data]="data" (formSubmitted)="handleSubmit($event)"></app-form-viewer-->
+<mat-toolbar *ngIf="!ref || !data">Test Form App</mat-toolbar>
+<div style="margin: 20px">
 
+  <div *ngIf="submittedData">
+    <mat-label>Submitted Data:</mat-label>
+    <pre>{{submittedData | json}}</pre>
+    <hr>
+  </div>
+  <div *ngIf="!data || !ref" fxLayout="column">
+      <mat-form-field>
+        <input matInput class="form-element" placeholder="Form Key" [(ngModel)]="ref">
+      </mat-form-field>
 
-<!--button (click)="updateData()">change</button-->
+      <mat-form-field>
+        <textarea matInput placeholder="Form Input Data (JSON)" [(ngModel)]="dataJSON"></textarea>
+      </mat-form-field>
+
+      <button *ngIf="submittedData" mat-button (click)="handleReuseData()">Use submitted data</button>
+      <button mat-button (click)="handleShowForm()">Show form</button>
+  </div>
+
+  <div *ngIf="ref && data">
+    <app-form-viewer form-app="''" [formRef]="ref" [data]="data" (formSubmitted)="handleSubmit($event)"></app-form-viewer>
+  </div>
+</div>
