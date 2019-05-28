@@ -72,19 +72,23 @@ export class AppComponent implements OnInit {
   formRegistry = FORM_REGISTRY;
   ref = 'Expenses.Expenses.creator.Create Expenses';
   data: any;
+  // set to default data for test app
   dataJSON = '{"Expenses":{"ExpenseItem":{"Description":"iPhone 8","DateOfExpense":"2019-05-24","ReceiptAvailable":"Yes","Amount":555},"ClaimantName":"John Smith","DepartmentCode":"12333"}}';
   submittedData: string;
   appReady = false;
 
+  // shows the form
   handleShowForm = () => {
     this.submittedData = undefined;
     this.data = JSON.parse(this.dataJSON);
   }
 
+  // sets data to the data previous submitted by the form
   handleReuseData = () => {
     this.dataJSON = JSON.stringify(this.submittedData);
   }
 
+  // handles submit of form
   handleSubmit = (data) => {
     console.log('Form submitted!: ', data);
     this.submittedData = data;
@@ -93,6 +97,7 @@ export class AppComponent implements OnInit {
 
 
   // login to tibco cloud
+  // only used for dev purposes if Tibco Live Apps API calls required
 
   public login(username, password, clientID): Observable<any> {
     localStorage.setItem(EMAIL_ID_KEY, username);
