@@ -1,3 +1,46 @@
+/**
+ * This application can be used develop and test form apps without the rest of the cloud starters framework
+ *
+ * When development is completed a form_package.js can be created (Angular element) and this can be used
+ * within a Cloud Starter application to replace a:
+ *
+ * - Creator Form
+ * - Action Form
+ * - Case Data page (read only form)
+ *
+ * Using this test application:
+ *
+ * If you form uses Tibco Cloud Live Apps API calls then enter the CONST for EMAIL_ID_KEY/CLIENT_ID_KEY/PW
+ * ** DON'T check these in to source control!
+ *
+ * To start the test app run:
+ * npm run serve_eu
+ * or
+ * npm run serve_us
+ *
+ * Then access via https://localhost:7200
+ *
+ * You can then select a formRef, enter payload (case data)_and show form
+ *
+ * To add a new custom form app:
+ *
+ * - Add new components to the project extending base-custom-form-component.ts
+ * - Register new components in form-viewer.component.ts (const FORM_REGISTRY)
+ * - Add new components to entryComponents in app.module.ts
+ *
+ * You should then be able to select your new component and run it using the test app
+ *
+ *
+ * Integrating into Cloud Starters:
+ *
+ * npm run build:elements will create src/app/assets/form-package.js
+ *
+ * - copy this file to the cloud starter (src/app/assets folder)
+ * - add to index.html
+ * - edit the src/app/assets/formConfig.js to add new formRefs
+ * - the cloud starter will then call the "form-viewer" component in place of the form and pass the ref + data structure
+ */
+
 import {
   Component,
   ComponentFactoryResolver,
@@ -12,6 +55,7 @@ import { FORM_REGISTRY } from './form-components/form-viewer/form-viewer.compone
 import {Observable} from 'rxjs';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 
+// If you use these DO NOT check them in to a source control repo!
 export const EMAIL_ID_KEY = '';
 export const CLIENT_ID_KEY = '';
 export const PW = '';

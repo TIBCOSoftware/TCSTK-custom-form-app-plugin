@@ -47,47 +47,47 @@ export class FormViewerComponent implements OnInit, OnChanges {
 
   @ViewChild('customFormContainer', { read: ViewContainerRef }) container;
 
-  // formApp input is not used however, due to a bug (angular elements?) it must be passed in as form-app="''" or the form doesnt render properly
+  /* formApp: input is not used however, due to a bug (angular elements?) it must be passed in as form-app="''" or the form doesnt render properly */
 
   @Input() formApp: string;
 
-  /* the form reference:
-   * format:
-   * case creator:
-   *    <applicationName>.<applicationInternalName>.creator.<processName>
-   * case action:
-   *    <applicationName>.<applicationInternalName>.action.<processName>
-   * case data page:
-   *    <applicationName>.<applicationInternalName>.casedata.<pageId>
-   * <pageId> can be any id but is typically 'default'
-   *
-   * Form apps are declared in FORM_REGISTRY const above formRef -> Component
-   */
+ /* formRef: the form reference:
+ * format:
+ * case creator:
+ *    <applicationName>.<applicationInternalName>.creator.<processName>
+ * case action:
+ *    <applicationName>.<applicationInternalName>.action.<processName>
+ * case data page:
+ *    <applicationName>.<applicationInternalName>.casedata.<pageId>
+ * <pageId> can be any id but is typically 'default'
+ *
+ * Form apps are declared in FORM_REGISTRY const above formRef -> Component
+ */
 
   @Input() formRef: string;
 
-  /* The input data for the form
-   *
-   * for a case action or creator process the data will include the top level 'caseType' object (PartnerRequest)
-   * eg:
-   * {
-   *    PartnerRequest: {
-   *      CaseId_v1: "PNR-37",
-   *      CaseMetrics_v1: {
-   *          Priority_v1: 2,
-   *          DueDate_v1: "2019-03-15"
-   *      },
-   *      PartnerReference_v1: "99000123",
-   *    }
-   * }
-   *
-   * for a casedata form the top level 'caseType' object is not included (form apps should take this into account).
-   *
-   */
+ /* data: The input data for the form
+ *
+ * for a case action or creator process the data will include the top level 'caseType' object (PartnerRequest)
+ * eg:
+ * {
+ *    PartnerRequest: {
+ *      CaseId_v1: "PNR-37",
+ *      CaseMetrics_v1: {
+ *          Priority_v1: 2,
+ *          DueDate_v1: "2019-03-15"
+ *      },
+ *      PartnerReference_v1: "99000123",
+ *    }
+ * }
+ *
+ * for a casedata form the top level 'caseType' object is not included (form apps should take this into account).
+ *
+ */
 
   @Input() data: any;
 
-  /* Outputs the data submitted by the form app as an event
+  /* formSubmitted: Outputs the data submitted by the form app as an event
    * Case Data forms should NOT emit any events since only creators/actions can change case data in Live Apps
    */
 

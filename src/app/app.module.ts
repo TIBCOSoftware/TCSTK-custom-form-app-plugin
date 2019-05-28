@@ -50,6 +50,7 @@ export class CustomDateAdapter extends MomentDateAdapter {
     const dateFormat: string | string[] = 'YYYY-MM-DD';
     return super.format(date, dateFormat);
   }
+
 }
 
 @NgModule({

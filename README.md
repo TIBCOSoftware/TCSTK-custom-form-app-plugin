@@ -26,7 +26,7 @@ interface:
 <script src="assets/form-package.js"></script>
 
 The cloud starter can then invoke the element form using:
- <custom-form [formId]="customFormId" [data]="data" (formSubmitted)="submitForm($event.detail)"></custom-form>
+ <custom-form [formRef]="customFormId" [data]="data" (formSubmitted)="submitForm($event.detail)"></custom-form>
 
 
 Notes: 
