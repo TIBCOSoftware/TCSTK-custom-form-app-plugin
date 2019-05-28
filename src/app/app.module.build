@@ -1,5 +1,5 @@
 import {BrowserModule, DomSanitizer} from '@angular/platform-browser';
-import {CUSTOM_ELEMENTS_SCHEMA, Injector, NgModule} from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, Injectable, Injector, NgModule} from '@angular/core';
 
 import { BaseCustomFormComponent } from './form-components/base-custom-form/base-custom-form.component';
 import {NewPartnerRequestFormComponent} from './form-components/new-partner-request-form/new-partner-request-form.component';
@@ -17,8 +17,10 @@ import {
   MatOptionModule, MatProgressSpinnerModule,
   MatSelectModule, MatSliderModule, MatStepperModule,
   MatToolbarModule,
-  MatTooltipModule
+  MatTooltipModule, NativeDateAdapter,
+  MAT_DATE_FORMATS, MAT_DATE_LOCALE
 } from '@angular/material';
+import {MatMomentDateModule, MomentDateAdapter, MAT_MOMENT_DATE_FORMATS, MAT_MOMENT_DATE_ADAPTER_OPTIONS} from '@angular/material-moment-adapter';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material';
 import {MatCheckboxModule} from '@angular/material';
@@ -28,8 +30,27 @@ import {FORM_REGISTRY, FormViewerComponent} from './form-components/form-viewer/
 import { PartnerRequestCasedataComponent } from './form-components/partner-request-casedata/partner-request-casedata.component';
 import {UpdateRequestMetricsFormComponent} from './form-components/update-request-metrics-form/update-request-metrics-form.component';
 import {AppComponent} from './app.component';
+import {NewExpenseClaimFormComponent} from './form-components/new-expense-claim-form/new-expense-claim-form.component';
+import {Moment} from 'moment';
 
 
+// Custom DateAdapter
+import {DateAdapter} from '@angular/material';
+
+@Injectable()
+export class CustomDateAdapter extends MomentDateAdapter {
+
+  parse(value: any, parseFormat: string | string[]): Moment | null {
+    const dateFormat: string | string[] = 'YYYY-MM-DD';
+    return super.parse(value, dateFormat);
+  }
+
+  format(date: Moment, displayFormat: string): string {
+    const dateFormat: string | string[] = 'YYYY-MM-DD';
+    return super.format(date, dateFormat);
+  }
+
+}
 
 @NgModule({
   declarations: [
@@ -38,7 +59,8 @@ import {AppComponent} from './app.component';
     NewPartnerRequestFormComponent,
     FormViewerComponent,
     PartnerRequestCasedataComponent,
-    UpdateRequestMetricsFormComponent
+    UpdateRequestMetricsFormComponent,
+    NewExpenseClaimFormComponent
   ],
   imports: [
     BrowserModule,
@@ -72,16 +94,34 @@ import {AppComponent} from './app.component';
     ScrollingModule,
     FormsModule,
     ReactiveFormsModule,
-    MatNativeDateModule,
     MatProgressSpinnerModule
   ],
+  exports: [MatDatepickerModule],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA],
-  providers: [],
+  providers: [
+    // Comment out the line below to turn off UTC:
+    {provide: MAT_MOMENT_DATE_ADAPTER_OPTIONS, useValue: {useUtc: true}},
+    {
+      provide: DateAdapter,
+      useClass: CustomDateAdapter,
+      // useClass: MomentDateAdapter,
+      deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS]
+    },
+    {provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS}
+    /*
+    {
+      provide: DateAdapter, useClass: CustomDateAdapter
+    },
+    {
+      provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS
+    }*/
+  ],
   /*bootstrap: [AppComponent],*/
   entryComponents: [
-    BaseCustomFormComponent, FormViewerComponent, NewPartnerRequestFormComponent, PartnerRequestCasedataComponent, UpdateRequestMetricsFormComponent
+    BaseCustomFormComponent, FormViewerComponent, NewPartnerRequestFormComponent, PartnerRequestCasedataComponent, UpdateRequestMetricsFormComponent, NewExpenseClaimFormComponent
   ]
 })
+
 export class AppModule {
 
   constructor(private injector: Injector, private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer) {

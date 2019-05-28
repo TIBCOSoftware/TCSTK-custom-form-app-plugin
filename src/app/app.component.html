@@ -1,5 +1,5 @@
 <mat-toolbar *ngIf="!ref || !data">Test Form App</mat-toolbar>
-<div style="margin: 20px">
+<div *ngIf="appReady" style="margin: 20px">
 
   <div *ngIf="submittedData">
     <mat-label>Submitted Data:</mat-label>
@@ -17,7 +17,6 @@
             {{formRef.id}}
           </mat-option>
         </mat-select>
-        <!--input matInput class="form-element" placeholder="Form Key" [(ngModel)]="ref"-->
       </mat-form-field>
 
       <mat-form-field>
