@@ -17,6 +17,7 @@ import {PartnerRequestCasedataComponent} from '../partner-request-casedata/partn
 import {BaseCustomFormComponent} from '../base-custom-form/base-custom-form.component';
 import {UpdateRequestMetricsFormComponent} from '../update-request-metrics-form/update-request-metrics-form.component';
 import {NewExpenseClaimFormComponent} from '../new-expense-claim-form/new-expense-claim-form.component';
+import {MatDatepicker} from '@angular/material';
 
 export class FormRecord {
   constructor(public id: string,
@@ -45,7 +46,7 @@ export const FORM_REGISTRY = [
 
 export class FormViewerComponent implements OnInit, OnChanges {
 
-  @ViewChild('customFormContainer', { read: ViewContainerRef }) container;
+  @ViewChild('customFormContainer', { read: ViewContainerRef, static: true }) container;
 
   /* formApp: input is not used however, due to a bug (angular elements?) it must be passed in as form-app="''" or the form doesnt render properly */
 
