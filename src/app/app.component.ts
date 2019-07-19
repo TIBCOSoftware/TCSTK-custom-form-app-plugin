@@ -90,7 +90,6 @@ export class AppComponent implements OnInit {
 
   // handles submit of form
   handleSubmit = (data) => {
-    console.log('Form submitted!: ', data);
     this.submittedData = data;
     this.data = undefined;
   }
@@ -125,7 +124,7 @@ export class AppComponent implements OnInit {
         this.appReady = true;
       },
         error => {
-        console.log('Login failed: ', error);
+        console.error('Login failed: ', error);
       });
     } else {
       this.appReady = true;

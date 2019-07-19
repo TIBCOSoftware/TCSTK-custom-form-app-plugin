@@ -136,13 +136,11 @@ export class AppModule {
 
   ngDoBootstrap() {
     if (!customElements.get('custom-form')) {
-      console.log('bootstrapping');
-      console.log(customElements);
       const el = createCustomElement(FormViewerComponent,
         {injector: this.injector});
       customElements.define('custom-form', el);
     } else {
-      console.log('already bootstrapped');
+      console.warn('already bootstrapped');
     }
   }
 }

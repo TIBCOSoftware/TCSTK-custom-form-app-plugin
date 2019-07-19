@@ -137,7 +137,6 @@ export class FormViewerComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
-    console.log('Form module init');
   }
 
 }
