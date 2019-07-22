@@ -18,6 +18,7 @@ import {BaseCustomFormComponent} from '../base-custom-form/base-custom-form.comp
 import {UpdateRequestMetricsFormComponent} from '../update-request-metrics-form/update-request-metrics-form.component';
 import {NewExpenseClaimFormComponent} from '../new-expense-claim-form/new-expense-claim-form.component';
 import {MatDatepicker} from '@angular/material';
+import {SampleCreatorFormComponent} from '../sample-creator-form/sample-creator-form.component';
 
 export class FormRecord {
   constructor(public id: string,
@@ -31,10 +32,11 @@ export class FormRecord {
 
 export const FORM_REGISTRY = [
   new FormRecord('default', 'creator', 'No Form Available', 'No form available to render', BaseCustomFormComponent),
-  new FormRecord('Expenses.Expenses.creator.Create Expenses', 'creator', 'Create Expense Report', 'Create New Expense Report', NewExpenseClaimFormComponent),
-  new FormRecord('Partner Request.PartnerRequest.creator.New Product Notification', 'creator', 'New Partner Request Form', 'Create a new partner request', NewPartnerRequestFormComponent),
-  new FormRecord('Partner Request.PartnerRequest.casedata.default', 'casedata', 'Partner Request Details', 'Case Details Tab 1', PartnerRequestCasedataComponent),
-  new FormRecord('Partner Request.PartnerRequest.action.Update Request Metrics', 'action', 'Update Request Metrics', 'Update Request Metrics', UpdateRequestMetricsFormComponent),
+  new FormRecord('myAppInternalName.myAppName.creator.CreatorName', 'creator', 'Sample Form', 'Sample Case Creation Form', SampleCreatorFormComponent)
+  // new FormRecord('Expenses.Expenses.creator.Create Expenses', 'creator', 'Create Expense Report', 'Create New Expense Report', NewExpenseClaimFormComponent),
+  // new FormRecord('Partner Request.PartnerRequest.creator.New Product Notification', 'creator', 'New Partner Request Form', 'Create a new partner request', NewPartnerRequestFormComponent),
+  // new FormRecord('Partner Request.PartnerRequest.casedata.default', 'casedata', 'Partner Request Details', 'Case Details Tab 1', PartnerRequestCasedataComponent),
+  // new FormRecord('Partner Request.PartnerRequest.action.Update Request Metrics', 'action', 'Update Request Metrics', 'Update Request Metrics', UpdateRequestMetricsFormComponent),
 ];
 
 @Component({

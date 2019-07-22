@@ -70,10 +70,10 @@ export class AppComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   formRegistry = FORM_REGISTRY;
-  ref = 'Expenses.Expenses.creator.Create Expenses';
+  ref = 'myAppInternalName.myAppName.creator.CreatorName';
   data: any;
   // set to default data for test app
-  dataJSON = '{"Expenses":{"ExpenseItem":{"Description":"iPhone 8","DateOfExpense":"2019-05-24","ReceiptAvailable":"Yes","Amount":555},"ClaimantName":"John Smith","DepartmentCode":"12333"}}';
+  dataJSON = '{"myCaseObjName":{"Description":"Description"}}';
   submittedData: string;
   appReady = false;
 

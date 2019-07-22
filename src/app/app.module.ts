@@ -32,6 +32,7 @@ import {UpdateRequestMetricsFormComponent} from './form-components/update-reques
 import {AppComponent} from './app.component';
 import {NewExpenseClaimFormComponent} from './form-components/new-expense-claim-form/new-expense-claim-form.component';
 import {Moment} from 'moment';
+import {SampleCreatorFormComponent} from './form-components/sample-creator-form/sample-creator-form.component';
 
 
 // Custom DateAdapter
@@ -57,8 +58,9 @@ export class CustomDateAdapter extends MomentDateAdapter {
   declarations: [
     AppComponent,
     BaseCustomFormComponent,
-    NewPartnerRequestFormComponent,
     FormViewerComponent,
+    SampleCreatorFormComponent,
+    NewPartnerRequestFormComponent,
     PartnerRequestCasedataComponent,
     UpdateRequestMetricsFormComponent,
     NewExpenseClaimFormComponent
@@ -120,7 +122,7 @@ export class CustomDateAdapter extends MomentDateAdapter {
   ],
   bootstrap: [AppComponent],
   entryComponents: [
-    BaseCustomFormComponent, FormViewerComponent, NewPartnerRequestFormComponent, PartnerRequestCasedataComponent, UpdateRequestMetricsFormComponent, NewExpenseClaimFormComponent
+    BaseCustomFormComponent, FormViewerComponent, SampleCreatorFormComponent, NewPartnerRequestFormComponent, PartnerRequestCasedataComponent, UpdateRequestMetricsFormComponent, NewExpenseClaimFormComponent
   ]
 })
 
