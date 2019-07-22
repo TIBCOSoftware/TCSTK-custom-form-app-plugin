@@ -5,12 +5,12 @@ import {MatDatepicker} from '@angular/material';
 import { Moment } from 'moment';
 
 @Component({
-  selector: 'app-sample-creator-form',
-  templateUrl: './sample-creator-form.component.html',
-  styleUrls: ['./sample-creator-form.component.css'],
+  selector: 'app-sample-casedata-form',
+  templateUrl: './sample-casedata-form.component.html',
+  styleUrls: ['./sample-casedata-form.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class SampleCreatorFormComponent extends BaseCustomFormComponent implements OnInit {
+export class SampleCasedataFormComponent extends BaseCustomFormComponent implements OnInit {
 
   @ViewChild(MatDatepicker, {static: false}) picker: MatDatepicker<Moment>;
 
@@ -23,6 +23,7 @@ export class SampleCreatorFormComponent extends BaseCustomFormComponent implemen
   populateForm = () => {
     this.formGroup = this.formBuilder.group(
       {
+        // setup formGroups according to your form structure
         FieldName: this.getDeepVal(this.data, 'myCaseObjName.FieldName')
       }
     );
@@ -35,6 +36,7 @@ export class SampleCreatorFormComponent extends BaseCustomFormComponent implemen
   }
 
   public updateData = (data) => {
+    // if case page is refreshed - this will be called to update case data
     this.data = data;
     this.populateForm();
   }

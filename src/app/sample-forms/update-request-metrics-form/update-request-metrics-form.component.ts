@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {BaseCustomFormComponent} from '../base-custom-form/base-custom-form.component';
+import {BaseCustomFormComponent} from '../../form-components/base-custom-form/base-custom-form.component';
 
 @Component({
   selector: 'app-update-request-metrics-form',

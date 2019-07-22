@@ -12,13 +12,14 @@ import {
   ViewContainerRef,
   ViewEncapsulation
 } from '@angular/core';
-import {NewPartnerRequestFormComponent} from '../new-partner-request-form/new-partner-request-form.component';
-import {PartnerRequestCasedataComponent} from '../partner-request-casedata/partner-request-casedata.component';
+import {NewPartnerRequestFormComponent} from '../../sample-forms/new-partner-request-form/new-partner-request-form.component';
+import {PartnerRequestCasedataComponent} from '../../sample-forms/partner-request-casedata/partner-request-casedata.component';
 import {BaseCustomFormComponent} from '../base-custom-form/base-custom-form.component';
-import {UpdateRequestMetricsFormComponent} from '../update-request-metrics-form/update-request-metrics-form.component';
-import {NewExpenseClaimFormComponent} from '../new-expense-claim-form/new-expense-claim-form.component';
+import {UpdateRequestMetricsFormComponent} from '../../sample-forms/update-request-metrics-form/update-request-metrics-form.component';
 import {MatDatepicker} from '@angular/material';
 import {SampleCreatorFormComponent} from '../sample-creator-form/sample-creator-form.component';
+import {SampleActionFormComponent} from '../sample-action-form/sample-action-form.component';
+import {SampleCasedataFormComponent} from '../sample-casedata-form/sample-casedata-form.component';
 
 export class FormRecord {
   constructor(public id: string,
@@ -32,8 +33,9 @@ export class FormRecord {
 
 export const FORM_REGISTRY = [
   new FormRecord('default', 'creator', 'No Form Available', 'No form available to render', BaseCustomFormComponent),
-  new FormRecord('myAppInternalName.myAppName.creator.CreatorName', 'creator', 'Sample Form', 'Sample Case Creation Form', SampleCreatorFormComponent)
-  // new FormRecord('Expenses.Expenses.creator.Create Expenses', 'creator', 'Create Expense Report', 'Create New Expense Report', NewExpenseClaimFormComponent),
+  new FormRecord('myAppInternalName.myAppName.creator.CreatorName', 'creator', 'Sample Form', 'Sample Case Creation Form', SampleCreatorFormComponent),
+  new FormRecord('myAppInternalName.myAppName.creator.ActionName', 'action', 'Sample Form', 'Sample Case Action Form', SampleActionFormComponent),
+  new FormRecord('myAppInternalName.myAppName.casedata.default', 'casedata', 'Sample Form', 'Sample Case Data Form', SampleCasedataFormComponent),
   // new FormRecord('Partner Request.PartnerRequest.creator.New Product Notification', 'creator', 'New Partner Request Form', 'Create a new partner request', NewPartnerRequestFormComponent),
   // new FormRecord('Partner Request.PartnerRequest.casedata.default', 'casedata', 'Partner Request Details', 'Case Details Tab 1', PartnerRequestCasedataComponent),
   // new FormRecord('Partner Request.PartnerRequest.action.Update Request Metrics', 'action', 'Update Request Metrics', 'Update Request Metrics', UpdateRequestMetricsFormComponent),

@@ -5,12 +5,12 @@ import {MatDatepicker} from '@angular/material';
 import { Moment } from 'moment';
 
 @Component({
-  selector: 'app-sample-creator-form',
-  templateUrl: './sample-creator-form.component.html',
-  styleUrls: ['./sample-creator-form.component.css'],
+  selector: 'app-sample-action-form',
+  templateUrl: './sample-action-form.component.html',
+  styleUrls: ['./sample-action-form.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class SampleCreatorFormComponent extends BaseCustomFormComponent implements OnInit {
+export class SampleActionFormComponent extends BaseCustomFormComponent implements OnInit {
 
   @ViewChild(MatDatepicker, {static: false}) picker: MatDatepicker<Moment>;
 
@@ -23,6 +23,7 @@ export class SampleCreatorFormComponent extends BaseCustomFormComponent implemen
   populateForm = () => {
     this.formGroup = this.formBuilder.group(
       {
+        // setup formGroups according to your form structure
         FieldName: this.getDeepVal(this.data, 'myCaseObjName.FieldName')
       }
     );
@@ -30,7 +31,7 @@ export class SampleCreatorFormComponent extends BaseCustomFormComponent implemen
   }
 
   ngOnInit() {
-    // input data will be passed as 'data' input parameter
+    // note: data wont be passed for an action
     this.populateForm();
   }
 

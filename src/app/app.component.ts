@@ -43,13 +43,7 @@
 
 import {
   Component,
-  ComponentFactoryResolver,
-  EventEmitter,
-  Injector,
-  Input, OnInit,
-  Output,
-  ViewContainerRef,
-  ViewEncapsulation
+  OnInit,
 } from '@angular/core';
 import { FORM_REGISTRY } from './form-components/form-viewer/form-viewer.component';
 import {Observable} from 'rxjs';

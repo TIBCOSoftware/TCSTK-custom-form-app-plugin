@@ -2,7 +2,7 @@ import {BrowserModule, DomSanitizer} from '@angular/platform-browser';
 import {CUSTOM_ELEMENTS_SCHEMA, Injector, Injectable, NgModule} from '@angular/core';
 
 import { BaseCustomFormComponent } from './form-components/base-custom-form/base-custom-form.component';
-import {NewPartnerRequestFormComponent} from './form-components/new-partner-request-form/new-partner-request-form.component';
+import {NewPartnerRequestFormComponent} from './sample-forms/new-partner-request-form/new-partner-request-form.component';
 import {createCustomElement} from '@angular/elements';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
@@ -27,17 +27,18 @@ import {MatCheckboxModule} from '@angular/material';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {FORM_REGISTRY, FormViewerComponent} from './form-components/form-viewer/form-viewer.component';
-import { PartnerRequestCasedataComponent } from './form-components/partner-request-casedata/partner-request-casedata.component';
-import {UpdateRequestMetricsFormComponent} from './form-components/update-request-metrics-form/update-request-metrics-form.component';
+import { PartnerRequestCasedataComponent } from './sample-forms/partner-request-casedata/partner-request-casedata.component';
+import {UpdateRequestMetricsFormComponent} from './sample-forms/update-request-metrics-form/update-request-metrics-form.component';
 import {AppComponent} from './app.component';
-import {NewExpenseClaimFormComponent} from './form-components/new-expense-claim-form/new-expense-claim-form.component';
 import {Moment} from 'moment';
 import {SampleCreatorFormComponent} from './form-components/sample-creator-form/sample-creator-form.component';
-
+import {SampleActionFormComponent} from './form-components/sample-action-form/sample-action-form.component';
+import {SampleCasedataFormComponent} from './form-components/sample-casedata-form/sample-casedata-form.component';
 
 // Custom DateAdapter
 import {DateAdapter} from '@angular/material';
 import {HttpClientModule} from '@angular/common/http';
+
 
 @Injectable()
 export class CustomDateAdapter extends MomentDateAdapter {
@@ -60,6 +61,8 @@ export class CustomDateAdapter extends MomentDateAdapter {
     BaseCustomFormComponent,
     FormViewerComponent,
     SampleCreatorFormComponent,
+    SampleActionFormComponent,
+    SampleCasedataFormComponent,
     NewPartnerRequestFormComponent,
     PartnerRequestCasedataComponent,
     UpdateRequestMetricsFormComponent,
@@ -122,7 +125,7 @@ export class CustomDateAdapter extends MomentDateAdapter {
   ],
   bootstrap: [AppComponent],
   entryComponents: [
-    BaseCustomFormComponent, FormViewerComponent, SampleCreatorFormComponent, NewPartnerRequestFormComponent, PartnerRequestCasedataComponent, UpdateRequestMetricsFormComponent, NewExpenseClaimFormComponent
+    BaseCustomFormComponent, FormViewerComponent, SampleCreatorFormComponent, SampleActionFormComponent, SampleCasedataFormComponent, NewPartnerRequestFormComponent, PartnerRequestCasedataComponent, UpdateRequestMetricsFormComponent
   ]
 })
 

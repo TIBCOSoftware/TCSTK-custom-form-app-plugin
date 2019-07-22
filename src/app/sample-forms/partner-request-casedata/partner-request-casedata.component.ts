@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, OnChanges, OnInit, SimpleChanges, ViewEncapsulation} from '@angular/core';
-import {BaseCustomFormComponent} from '../base-custom-form/base-custom-form.component';
+import {BaseCustomFormComponent} from '../../form-components/base-custom-form/base-custom-form.component';
 import {FormBuilder, FormGroup} from '@angular/forms';
 
 @Component({
