@@ -26,7 +26,8 @@ import {MatFormFieldModule} from '@angular/material';
 import {MatCheckboxModule} from '@angular/material';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import {FlexLayoutModule} from '@angular/flex-layout';
-import {FORM_REGISTRY, FormViewerComponent} from './form-components/form-viewer/form-viewer.component';
+import {FormViewerComponent} from './form-components/form-viewer/form-viewer.component';
+import {FORM_REGISTRY} from './form.registry';
 import { PartnerRequestCasedataComponent } from './sample-forms/partner-request-casedata/partner-request-casedata.component';
 import {UpdateRequestMetricsFormComponent} from './sample-forms/update-request-metrics-form/update-request-metrics-form.component';
 import {AppComponent} from './app.component';
@@ -65,8 +66,7 @@ export class CustomDateAdapter extends MomentDateAdapter {
     SampleCasedataFormComponent,
     NewPartnerRequestFormComponent,
     PartnerRequestCasedataComponent,
-    UpdateRequestMetricsFormComponent,
-    NewExpenseClaimFormComponent
+    UpdateRequestMetricsFormComponent
   ],
   imports: [
     BrowserModule,

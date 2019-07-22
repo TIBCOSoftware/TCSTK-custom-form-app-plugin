@@ -1,5 +1,5 @@
 import {BrowserModule, DomSanitizer} from '@angular/platform-browser';
-import {CUSTOM_ELEMENTS_SCHEMA, Injector, Injectable, NgModule} from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, Injectable, Injector, NgModule} from '@angular/core';
 
 import { BaseCustomFormComponent } from './form-components/base-custom-form/base-custom-form.component';
 import {NewPartnerRequestFormComponent} from './sample-forms/new-partner-request-form/new-partner-request-form.component';
@@ -26,7 +26,8 @@ import {MatFormFieldModule} from '@angular/material';
 import {MatCheckboxModule} from '@angular/material';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import {FlexLayoutModule} from '@angular/flex-layout';
-import {FORM_REGISTRY, FormViewerComponent} from './form-components/form-viewer/form-viewer.component';
+import {FormViewerComponent} from './form-components/form-viewer/form-viewer.component';
+import {FORM_REGISTRY} from './form.registry';
 import { PartnerRequestCasedataComponent } from './sample-forms/partner-request-casedata/partner-request-casedata.component';
 import {UpdateRequestMetricsFormComponent} from './sample-forms/update-request-metrics-form/update-request-metrics-form.component';
 import {AppComponent} from './app.component';
@@ -37,8 +38,6 @@ import {SampleCasedataFormComponent} from './form-components/sample-casedata-for
 
 // Custom DateAdapter
 import {DateAdapter} from '@angular/material';
-import {HttpClientModule} from '@angular/common/http';
-
 
 @Injectable()
 export class CustomDateAdapter extends MomentDateAdapter {
@@ -99,8 +98,7 @@ export class CustomDateAdapter extends MomentDateAdapter {
     ScrollingModule,
     FormsModule,
     ReactiveFormsModule,
-    MatProgressSpinnerModule,
-    HttpClientModule
+    MatProgressSpinnerModule
   ],
   exports: [MatDatepickerModule],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA],
@@ -122,7 +120,7 @@ export class CustomDateAdapter extends MomentDateAdapter {
       provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS
     }*/
   ],
-  bootstrap: [AppComponent],
+  /*bootstrap: [AppComponent],*/
   entryComponents: [
     BaseCustomFormComponent, FormViewerComponent, SampleCreatorFormComponent, SampleActionFormComponent, SampleCasedataFormComponent, NewPartnerRequestFormComponent, PartnerRequestCasedataComponent, UpdateRequestMetricsFormComponent
   ]
@@ -140,15 +138,13 @@ export class AppModule {
     );
   }
 
-  /*ngDoBootstrap() {
+  ngDoBootstrap() {
     if (!customElements.get('custom-form')) {
-      console.log('bootstrapping');
-      console.log(customElements);
       const el = createCustomElement(FormViewerComponent,
         {injector: this.injector});
       customElements.define('custom-form', el);
     } else {
-      console.log('already bootstrapped');
+      console.warn('already bootstrapped');
     }
-  }*/
+  }
 }

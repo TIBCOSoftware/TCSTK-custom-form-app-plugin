@@ -45,7 +45,7 @@ import {
   Component,
   OnInit,
 } from '@angular/core';
-import { FORM_REGISTRY } from './form-components/form-viewer/form-viewer.component';
+import { FORM_REGISTRY } from './form.registry';
 import {Observable} from 'rxjs';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 
@@ -67,7 +67,7 @@ export class AppComponent implements OnInit {
   ref = 'myAppInternalName.myAppName.creator.CreatorName';
   data: any;
   // set to default data for test app
-  dataJSON = '{"myCaseObjName":{"Description":"Description"}}';
+  dataJSON = '{"SampleApp":{"field1":"1","field2":"2","field3":"3"}}';
   submittedData: string;
   appReady = false;
 

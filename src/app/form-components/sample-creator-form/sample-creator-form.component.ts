@@ -19,11 +19,25 @@ export class SampleCreatorFormComponent extends BaseCustomFormComponent implemen
   }
 
   formGroup: FormGroup;
+  sampleAppFormGroup: FormGroup;
+
+  /*
+ * Sample data JSON
+ {"SampleApp":{"state":"Created","field1":"1","field2":"2","field3":"3"}}
+*/
 
   populateForm = () => {
-    this.formGroup = this.formBuilder.group(
+    this.sampleAppFormGroup = this.formBuilder.group(
       {
-        FieldName: this.getDeepVal(this.data, 'myCaseObjName.FieldName')
+        // setup formGroups according to your form data structure
+        field1: this.getDeepVal(this.data, 'SampleApp.field1'),
+        field2: this.getDeepVal(this.data, 'SampleApp.field2'),
+        field3: this.getDeepVal(this.data, 'SampleApp.field3')
+      }
+    );
+
+    this.formGroup = this.formBuilder.group({
+        SampleApp: this.sampleAppFormGroup
       }
     );
 
