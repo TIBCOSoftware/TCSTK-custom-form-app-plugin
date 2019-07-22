@@ -21,21 +21,24 @@ export class SampleCreatorFormComponent extends BaseCustomFormComponent implemen
   formGroup: FormGroup;
   sampleAppFormGroup: FormGroup;
 
-  /*
- * Sample data JSON
- {"SampleApp":{"state":"Created","field1":"1","field2":"2","field3":"3"}}
-*/
-
   populateForm = () => {
+
+    /*
+    * Sample data JSON
+    * {"SampleApp":{"state":"Created","field1":"1","field2":"2","field3":"3"}}
+    */
+
     this.sampleAppFormGroup = this.formBuilder.group(
       {
         // setup formGroups according to your form data structure
-        field1: this.getDeepVal(this.data, 'SampleApp.field1'),
-        field2: this.getDeepVal(this.data, 'SampleApp.field2'),
-        field3: this.getDeepVal(this.data, 'SampleApp.field3')
+        field1: this.getDeepVal('', 'SampleApp.field1'),
+        field2: this.getDeepVal('', 'SampleApp.field2'),
+        field3: this.getDeepVal('', 'SampleApp.field3')
       }
     );
 
+    // this is the top level form object (case type name - SampleApp)
+    // only needed for creators and actions
     this.formGroup = this.formBuilder.group({
         SampleApp: this.sampleAppFormGroup
       }
@@ -44,7 +47,7 @@ export class SampleCreatorFormComponent extends BaseCustomFormComponent implemen
   }
 
   ngOnInit() {
-    // input data will be passed as 'data' input parameter
+    // note no input data passed for creator
     this.populateForm();
   }
 
