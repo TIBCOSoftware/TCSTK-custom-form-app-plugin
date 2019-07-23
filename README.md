@@ -12,25 +12,24 @@ interface:
 1) Create the form app plugin:
 
 - Add new components extending base-custom-form-component.ts
-- Register new components in form-viewer.component.ts
-- Add new components to entryComponents in app.module.ts
+- Register new components in form.registry.ts
+- Add new components to entryComponents in app.module.ts/app.module.dev/app.module.build
 
-2) Build element:
+2) Test the form using npm run serve_eu
+
+3) Build elements JS:
 
   npm run build:elements
 
-3) Copy assets/form-package.js and assets/styles.css to your cloud starter app assets folder
+4) Copy assets/form-package.js and assets/styles.css to your cloud starter app assets folder
 
-4) Load the JS in Cloud Starter index.html:
+5) Load the JS in Cloud Starter index.html:
 
 <script src="assets/form-package.js"></script>
 
-The cloud starter can then invoke the element form using:
- <custom-form [formRef]="customFormId" [data]="data" (formSubmitted)="submitForm($event.detail)"></custom-form>
-
+6) Edit the Cloud Starter Toolkit Applications's customForms.json to include the new form references
 
 Notes: 
 
 - Since the plugin is an element (Web Component), you could use another framework to create this form plugin.
-- You can host the JS externally and hence update the form app without updating the Cloud Starter.
 
