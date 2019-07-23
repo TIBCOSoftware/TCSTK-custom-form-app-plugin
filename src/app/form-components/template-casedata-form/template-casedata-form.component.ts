@@ -21,16 +21,22 @@ export class TemplateCasedataFormComponent extends BaseCustomFormComponent imple
   formGroup: FormGroup;
 
   /*
-   * Sample data JSON
-   * {"state":"Created","field1":"1","field2":"2","field3":"3"}
+   * The form should work on a data model that matches that received from the case data APIs
    *
-   * Note: Case Data Forms use a different data structure to actions and creators.
-   * They do NOT contain the parent case object (SampleApp) eg:
-   * case data: {"state":"Created","field1":"1","field2":"2","field3":"3"}
-   * vs
-   * action: {"SampleApp":{"state":"Created","field1":"1","field2":"2","field3":"3"}}
-  */
+   * You can see an example data payload for a form by opening the case view in the
+   * Cloud Starters Toolkit Case Management App and reviewing the console log (warnings)
+   *  - filter for *** Forms::
+   *
+   * For example: when opening the case screen a generated form shows case data:
+   *
+   * *** Forms: Initial Form Data (JSON): {"field1":"test1","field2":"test2","field3":"test3","state":"Created"}
+   *
+   * Note that unlike creators/actions the data payload does not contain the outer case object ('SampleApp')
+   */
 
+  // These are the attributes that need to be populated in the form
+  // We need to populate the form with the existing case data
+  // Forms receive data in the data input parameter inherited from BaseCustomForm
   populateForm = () => {
     this.formGroup = this.formBuilder.group(
       {
@@ -40,7 +46,6 @@ export class TemplateCasedataFormComponent extends BaseCustomFormComponent imple
         field3: this.getDeepVal(this.data, 'field3')
       }
     );
-
   }
 
   ngOnInit() {
@@ -53,4 +58,8 @@ export class TemplateCasedataFormComponent extends BaseCustomFormComponent imple
     this.data = data;
     this.populateForm();
   }
+
+  // Note there is normally no submit button for a case data form
+  // and the template should contain read-only form fields
+
 }

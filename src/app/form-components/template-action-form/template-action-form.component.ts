@@ -24,14 +24,29 @@ export class TemplateActionFormComponent extends BaseCustomFormComponent impleme
   populateForm = () => {
 
     /*
-     * Sample data JSON
-     * {"SampleApp":{"state":"Created","field1":"1","field2":"2","field3":"3"}}
+    * The form should work on a data model that matches that expected when running the process
+    *
+    * You can see an example data payload for a form by running a generated form in the Case Management App
+    * and reviewing the console log (warnings) - filter for *** Forms::
+    *
+    * For example: when opening a case action (intial data):
+    *
+    * *** Forms: Initial Form Data (JSON): {"SampleApp":{"field1":"test1","field2":"test2","field3":"test3","state":"Created"}}
+    *
+    * For example: when clicking submit on a case action:
+    *
+    * *** Forms: JSON:  {"SampleApp":{"field1":"test1","field2":"test2","field3":"test3"}}
+    *
     */
 
+    // These are the attributes inside the 'SampleApp' object
+    // Since actions have input data we need to populate the form with the existing data
+    // Forms receive input data in the data input parameter inherited from BaseCustomForm
     this.sampleAppFormGroup = this.formBuilder.group(
       {
         // setup formGroups according to your form data structure
-        // you can use getDeepVal to populate the form with data from the input data using . notation
+        // you can use getDeepVal to populate the form with data from the input data using ./[] notations
+        // see implementation in BaseCustomForm for more details
         field1: this.getDeepVal(this.data, 'SampleApp.field1'),
         field2: this.getDeepVal(this.data, 'SampleApp.field2'),
         field3: this.getDeepVal(this.data, 'SampleApp.field3')
@@ -53,7 +68,15 @@ export class TemplateActionFormComponent extends BaseCustomFormComponent impleme
   }
 
   public updateData = (data) => {
+    // if case page is refreshed - this will be called to update case data
     this.data = data;
     this.populateForm();
   }
+
+  // Note submit is handled by the inherited onSubmit method from BaseCustomFormComponent but you can over-ride it here if required:
+
+  /*public onSubmit = (formdata: any) => {
+    console.warn('*** Forms: Custom form - Submitting form data: ', formdata);
+    this.formSubmitted.emit(formdata);
+  }*/
 }

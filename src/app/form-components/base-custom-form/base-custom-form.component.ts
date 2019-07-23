@@ -30,7 +30,7 @@ export class BaseCustomFormComponent {
   }
 
   public onSubmit = (formdata: any) => {
-    console.warn('*** Submitting form data: ', formdata);
+    console.warn('*** Forms: Custom form - Submitting form data: ', formdata);
     this.formSubmitted.emit(formdata);
   }
 }
