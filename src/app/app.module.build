@@ -27,14 +27,13 @@ import {MatCheckboxModule} from '@angular/material';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {FormViewerComponent} from './form-components/form-viewer/form-viewer.component';
-import {FORM_REGISTRY} from './form.registry';
 import { PartnerRequestCasedataComponent } from './sample-forms/partner-request-casedata/partner-request-casedata.component';
 import {UpdateRequestMetricsFormComponent} from './sample-forms/update-request-metrics-form/update-request-metrics-form.component';
 import {AppComponent} from './app.component';
 import {Moment} from 'moment';
-import {SampleCreatorFormComponent} from './form-components/sample-creator-form/sample-creator-form.component';
-import {SampleActionFormComponent} from './form-components/sample-action-form/sample-action-form.component';
-import {SampleCasedataFormComponent} from './form-components/sample-casedata-form/sample-casedata-form.component';
+import {TemplateCreatorFormComponent} from './form-components/template-creator-form/template-creator-form.component';
+import {TemplateActionFormComponent} from './form-components/template-action-form/template-action-form.component';
+import {TemplateCasedataFormComponent} from './form-components/template-casedata-form/template-casedata-form.component';
 
 // Custom DateAdapter
 import {DateAdapter} from '@angular/material';
@@ -59,9 +58,9 @@ export class CustomDateAdapter extends MomentDateAdapter {
     AppComponent,
     BaseCustomFormComponent,
     FormViewerComponent,
-    SampleCreatorFormComponent,
-    SampleActionFormComponent,
-    SampleCasedataFormComponent,
+    TemplateCreatorFormComponent,
+    TemplateActionFormComponent,
+    TemplateCasedataFormComponent,
     NewPartnerRequestFormComponent,
     PartnerRequestCasedataComponent,
     UpdateRequestMetricsFormComponent
@@ -122,7 +121,7 @@ export class CustomDateAdapter extends MomentDateAdapter {
   ],
   /*bootstrap: [AppComponent],*/
   entryComponents: [
-    BaseCustomFormComponent, FormViewerComponent, SampleCreatorFormComponent, SampleActionFormComponent, SampleCasedataFormComponent, NewPartnerRequestFormComponent, PartnerRequestCasedataComponent, UpdateRequestMetricsFormComponent
+    BaseCustomFormComponent, FormViewerComponent, TemplateCreatorFormComponent, TemplateActionFormComponent, TemplateCasedataFormComponent, NewPartnerRequestFormComponent, PartnerRequestCasedataComponent, UpdateRequestMetricsFormComponent
   ]
 })
 

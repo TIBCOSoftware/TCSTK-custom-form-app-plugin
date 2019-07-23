@@ -5,12 +5,12 @@ import {MatDatepicker} from '@angular/material';
 import { Moment } from 'moment';
 
 @Component({
-  selector: 'app-sample-action-form',
-  templateUrl: './sample-action-form.component.html',
-  styleUrls: ['./sample-action-form.component.css'],
+  selector: 'app-template-creator-form',
+  templateUrl: './template-creator-form.component.html',
+  styleUrls: ['./template-creator-form.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class SampleActionFormComponent extends BaseCustomFormComponent implements OnInit {
+export class TemplateCreatorFormComponent extends BaseCustomFormComponent implements OnInit {
 
   @ViewChild(MatDatepicker, {static: false}) picker: MatDatepicker<Moment>;
 
@@ -24,31 +24,30 @@ export class SampleActionFormComponent extends BaseCustomFormComponent implement
   populateForm = () => {
 
     /*
-     * Sample data JSON
-     * {"SampleApp":{"state":"Created","field1":"1","field2":"2","field3":"3"}}
+    * Sample data JSON
+    * {"SampleApp":{"state":"Created","field1":"1","field2":"2","field3":"3"}}
     */
 
     this.sampleAppFormGroup = this.formBuilder.group(
       {
         // setup formGroups according to your form data structure
-        // you can use getDeepVal to populate the form with data from the input data using . notation
-        field1: this.getDeepVal(this.data, 'SampleApp.field1'),
-        field2: this.getDeepVal(this.data, 'SampleApp.field2'),
-        field3: this.getDeepVal(this.data, 'SampleApp.field3')
+        field1: this.getDeepVal('', 'SampleApp.field1'),
+        field2: this.getDeepVal('', 'SampleApp.field2'),
+        field3: this.getDeepVal('', 'SampleApp.field3')
       }
     );
 
     // this is the top level form object (case type name - SampleApp)
     // only needed for creators and actions
     this.formGroup = this.formBuilder.group({
-      SampleApp: this.sampleAppFormGroup
+        SampleApp: this.sampleAppFormGroup
       }
     );
 
   }
 
   ngOnInit() {
-    // note: existing case data will be passed for an action
+    // note no input data passed for creator
     this.populateForm();
   }
 

@@ -5,12 +5,12 @@ import {MatDatepicker} from '@angular/material';
 import { Moment } from 'moment';
 
 @Component({
-  selector: 'app-sample-creator-form',
-  templateUrl: './sample-creator-form.component.html',
-  styleUrls: ['./sample-creator-form.component.css'],
+  selector: 'app-template-action-form',
+  templateUrl: './template-action-form.component.html',
+  styleUrls: ['./template-action-form.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class SampleCreatorFormComponent extends BaseCustomFormComponent implements OnInit {
+export class TemplateActionFormComponent extends BaseCustomFormComponent implements OnInit {
 
   @ViewChild(MatDatepicker, {static: false}) picker: MatDatepicker<Moment>;
 
@@ -24,30 +24,31 @@ export class SampleCreatorFormComponent extends BaseCustomFormComponent implemen
   populateForm = () => {
 
     /*
-    * Sample data JSON
-    * {"SampleApp":{"state":"Created","field1":"1","field2":"2","field3":"3"}}
+     * Sample data JSON
+     * {"SampleApp":{"state":"Created","field1":"1","field2":"2","field3":"3"}}
     */
 
     this.sampleAppFormGroup = this.formBuilder.group(
       {
         // setup formGroups according to your form data structure
-        field1: this.getDeepVal('', 'SampleApp.field1'),
-        field2: this.getDeepVal('', 'SampleApp.field2'),
-        field3: this.getDeepVal('', 'SampleApp.field3')
+        // you can use getDeepVal to populate the form with data from the input data using . notation
+        field1: this.getDeepVal(this.data, 'SampleApp.field1'),
+        field2: this.getDeepVal(this.data, 'SampleApp.field2'),
+        field3: this.getDeepVal(this.data, 'SampleApp.field3')
       }
     );
 
     // this is the top level form object (case type name - SampleApp)
     // only needed for creators and actions
     this.formGroup = this.formBuilder.group({
-        SampleApp: this.sampleAppFormGroup
+      SampleApp: this.sampleAppFormGroup
       }
     );
 
   }
 
   ngOnInit() {
-    // note no input data passed for creator
+    // note: existing case data will be passed for an action
     this.populateForm();
   }
 

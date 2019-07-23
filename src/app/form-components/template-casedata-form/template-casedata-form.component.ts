@@ -5,12 +5,12 @@ import {MatDatepicker} from '@angular/material';
 import { Moment } from 'moment';
 
 @Component({
-  selector: 'app-sample-casedata-form',
-  templateUrl: './sample-casedata-form.component.html',
-  styleUrls: ['./sample-casedata-form.component.css'],
+  selector: 'app-template-casedata-form',
+  templateUrl: './template-casedata-form.component.html',
+  styleUrls: ['./template-casedata-form.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class SampleCasedataFormComponent extends BaseCustomFormComponent implements OnInit {
+export class TemplateCasedataFormComponent extends BaseCustomFormComponent implements OnInit {
 
   @ViewChild(MatDatepicker, {static: false}) picker: MatDatepicker<Moment>;
 
