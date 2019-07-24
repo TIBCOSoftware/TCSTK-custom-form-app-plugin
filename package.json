@@ -10,6 +10,7 @@
     "e2e": "ng e2e",
     "serve_eu": "cp ./src/app/app.module.dev ./src/app/app.module.ts; ng serve --proxy-config proxy.conf.prod.eu.json --ssl true --source-map --aot",
     "serve_us": "cp ./src/app/app.module.dev ./src/app/app.module.ts; ng serve --proxy-config proxy.conf.prod.us.json --ssl true --source-map --aot",
+    "serve_au": "cp ./src/app/app.module.dev ./src/app/app.module.ts; ng serve --proxy-config proxy.conf.prod.au.json --ssl true --source-map --aot",
     "build:elements": "cp ./src/app/app.module.build ./src/app/app.module.ts; ng build custom-form-app --prod --output-hashing=none && node build-elements.js; cp ./src/app/app.module.dev ./src/app/app.module.ts"
   },
   "private": true,
@@ -39,7 +40,7 @@
   },
   "devDependencies": {
     "@angular-builders/custom-webpack": "^8.1.0",
-    "@tibco-tcstk/component-template": "~1.1.1",
+    "@tibco-tcstk/component-template": "~1.1.2",
     "@angular-devkit/build-angular": "~0.801.2",
     "@angular/cli": "~8.1.2",
     "@angular/compiler-cli": "~8.1.2",
