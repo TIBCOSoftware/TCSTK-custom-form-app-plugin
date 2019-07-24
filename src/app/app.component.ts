@@ -64,7 +64,7 @@ export class AppComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   formRegistry = FORM_REGISTRY;
-  ref = 'myAppInternalName.myAppName.creator.CreatorName';
+  ref = 'SampleApp.SampleApp.creator.Create SampleApp';
   data: any;
   // set to default data for test app
   dataJSON = '{"SampleApp":{"field1":"1","field2":"2","field3":"3"}}';

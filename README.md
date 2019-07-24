@@ -11,13 +11,18 @@ interface:
 
 1) Create the form app plugin:
 
+- You can use schematics to create a new action/creator/casedata form component
+
+*OR* you can manually create form components by:
+
 - Add new components extending base-custom-form-component.ts
 - Register new components in form.registry.ts
 - Add new components to entryComponents in app.module.ts/app.module.dev/app.module.build
 
-2) Test the form using npm run serve_eu
+2) Test the form using npm run serve_eu 
+   (you can configure the default selection and input data in app.component)
 
-3) Build elements JS:
+3) Create Web Components js (form-package.js):
 
   npm run build:elements
 

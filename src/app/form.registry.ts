@@ -2,6 +2,9 @@ import {BaseCustomFormComponent} from './form-components/base-custom-form/base-c
 import {TemplateCreatorFormComponent} from './form-components/template-creator-form/template-creator-form.component';
 import {TemplateActionFormComponent} from './form-components/template-action-form/template-action-form.component';
 import {TemplateCasedataFormComponent} from './form-components/template-casedata-form/template-casedata-form.component';
+// import {PartnerRequestCasedataComponent} from './sample-forms/partner-request-casedata/partner-request-casedata.component';
+// import {NewPartnerRequestFormComponent} from './sample-forms/new-partner-request-form/new-partner-request-form.component';
+// import {UpdateRequestMetricsFormComponent} from './sample-forms/update-request-metrics-form/update-request-metrics-form.component';
 
 
 export class FormRecord {
