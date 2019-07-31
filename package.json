@@ -48,7 +48,7 @@
     "@angular/language-service": "~8.1.2",
     "@types/node": "~12.6.8",
     "@webcomponents/webcomponentsjs": "^2.2.10",
-    "@tibco-tcstk/component-template": "^1.1.4",
+    "@tibco-tcstk/component-template": "^1.1.9",
     "codelyzer": "~5.1.0",
     "ts-node": "~8.3.0",
     "tslint": "~5.18.0",
