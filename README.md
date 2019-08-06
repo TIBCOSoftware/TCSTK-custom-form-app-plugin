@@ -1,4 +1,4 @@
-# CustomFormApp
+# TIBCO Cloud™ Starters Toolkit -- Custom Form App Plugin
 
 This app can be used to create a seperate Angular Elements Application to add custom form applications to a Cloud Starter.
 
@@ -37,4 +37,10 @@ interface:
 Notes: 
 
 - Since the plugin is an element (Web Component), you could use another framework to create this form plugin.
+
+/*
+* Copyright © 2019. TIBCO Software Inc.
+* This file is subject to the license terms contained
+* in the license file that is distributed with this file.
+ */
 
