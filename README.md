@@ -1,17 +1,17 @@
 # TIBCO Cloud™ Starters Toolkit -- Custom Form App Plugin
 
-This app can be used to create a seperate Angular Elements Application to add custom form applications to a Cloud Starter.
+This app can be used to create a seperate Angular Elements Application to add custom form applications to a TIBCO Cloud™ Starter.
 
 The app can be used to display a component in the place of a form:
 
 interface:
 
 @Input(): data:any - the data object passed to the form component from Cloud Starter App
-@Output(): formSubmitted - the event raised by the form component containing output data
+@Output(): formSubmitted - event raised by the form component containing output data from the form
 
 1) Create the form app plugin:
 
-- You can use schematics to create a new action/creator/casedata form component
+- You can use the the [TIBCO Cloud™ Starters Toolkit -- Component Schematics](https://github.com/TIBCOSoftware/TCSTK-component-schematics) to create a new action/creator/casedata form component
 
 *OR* you can manually create form components by:
 
@@ -19,7 +19,7 @@ interface:
 - Register new components in form.registry.ts
 - Add new components to entryComponents in app.module.ts/app.module.dev/app.module.build
 
-2) Test the form using npm run serve_eu 
+2) Test the form using npm run serve_eu (for us/au - use appropriate region - serve_us/serve_au)
    (you can configure the default selection and input data in app.component)
 
 3) Create Web Components js (form-package.js):
@@ -32,7 +32,7 @@ interface:
 
 <script src="assets/form-package.js"></script>
 
-6) Edit the Cloud Starter Toolkit Applications's customForms.json to include the new form references
+6) Edit the Cloud Starter Toolkit Applications's assets/config/customForms.json to include the new form references
 
 Notes: 
 
