@@ -13,6 +13,10 @@ interface:
 
 - You can use the the [TIBCO Cloud™ Starters Toolkit -- Component Schematics](https://github.com/TIBCOSoftware/TCSTK-component-schematics) to create a new action/creator/casedata form component
 
+ng generate @tibco-tcstk/component-template:custom-form-creator CustomFormCreator
+ng generate @tibco-tcstk/component-template:custom-form-action CustomFormAction
+ng generate @tibco-tcstk/component-template:custom-form-casedata CustomFormCaseData
+
 *OR* you can manually create form components by:
 
 - Add new components extending base-custom-form-component.ts
