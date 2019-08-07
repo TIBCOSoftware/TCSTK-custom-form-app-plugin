@@ -30,7 +30,7 @@ interface:
 
   npm run build:elements
 
-4) Copy assets/form-package.js and assets/styles.css to your cloud starter app assets folder
+4) Copy assets/form-package.js to your cloud starter app assets folder
 
 5) Load the JS in Cloud Starter index.html:
 
