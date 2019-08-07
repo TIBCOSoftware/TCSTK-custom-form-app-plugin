@@ -11,11 +11,11 @@ interface:
 
 1) Create the form app plugin:
 
-- You can use the the [TIBCO Cloud™ Starters Toolkit -- Component Schematics](https://github.com/TIBCOSoftware/TCSTK-component-schematics) to create a new action/creator/casedata form component
+- You can use the the [TIBCO Cloud™ Starters Toolkit -- Component Schematics](https://github.com/TIBCOSoftware/TCSTK-component-schematics) to create a new form component:
 
-ng generate @tibco-tcstk/component-template:custom-form-creator CustomFormCreator
-ng generate @tibco-tcstk/component-template:custom-form-action CustomFormAction
-ng generate @tibco-tcstk/component-template:custom-form-casedata CustomFormCaseData
+- ng generate @tibco-tcstk/component-template:custom-form-creator CustomFormCreator
+- ng generate @tibco-tcstk/component-template:custom-form-action CustomFormAction
+- ng generate @tibco-tcstk/component-template:custom-form-casedata CustomFormCaseData
 
 *OR* you can manually create form components by:
 
