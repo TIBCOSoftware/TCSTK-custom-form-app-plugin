@@ -6,7 +6,7 @@ The app can be used to display a component in the place of a form:
 
 interface:
 
-@Input(): data:any - the data object passed to the form component from Cloud Starter App
+@Input(): data:any - the data object passed to the form component from TIBCO Cloud™ Starter App
 @Output(): formSubmitted - event raised by the form component containing output data from the form
 
 1) Create the form app plugin:
