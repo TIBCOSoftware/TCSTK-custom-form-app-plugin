@@ -40,7 +40,6 @@
     "zone.js": "~0.9.1"
   },
   "devDependencies": {
-    "child_process": "^1.0.2",
     "@angular-builders/custom-webpack": "^8.1.0",
     "@angular-devkit/build-angular": "~0.801.2",
     "@angular/cli": "~8.1.2",
@@ -49,6 +48,7 @@
     "@types/node": "~12.6.8",
     "@webcomponents/webcomponentsjs": "^2.2.10",
     "@tibco-tcstk/component-template": "*",
+    "child_process": "^1.0.2",
     "codelyzer": "~5.1.0",
     "ts-node": "~8.3.0",
     "tslint": "~5.18.0",
