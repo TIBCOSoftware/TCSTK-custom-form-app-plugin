@@ -30,9 +30,9 @@ export class FormRecord {
 
 export const FORM_REGISTRY = [
   new FormRecord('default', 'creator', 'No Form Available', 'No form available to render', BaseCustomFormComponent),
-  // new FormRecord('SampleApp.SampleApp.creator.Create SampleApp', 'creator', 'Sample Form', 'Sample App Creation Form', TemplateCreatorFormComponent),
-  // new FormRecord('SampleApp.SampleApp.action.Update SampleApp', 'action', 'Sample Form', 'Sample App Action Form', TemplateActionFormComponent),
-  // new FormRecord('SampleApp.SampleApp.casedata.default', 'casedata', 'Sample Form', 'Sample App Data Form', TemplateCasedataFormComponent),
+  new FormRecord('SampleApp.SampleApp.creator.Create SampleApp', 'creator', 'Sample Form', 'Sample App Creation Form', TemplateCreatorFormComponent),
+  new FormRecord('SampleApp.SampleApp.action.Update SampleApp', 'action', 'Sample Form', 'Sample App Action Form', TemplateActionFormComponent),
+  new FormRecord('SampleApp.SampleApp.casedata.default', 'casedata', 'Sample Form', 'Sample App Data Form', TemplateCasedataFormComponent),
   // new FormRecord('Partner Request.PartnerRequest.creator.New Product Notification', 'creator', 'New Partner Request Form', 'Create a new partner request', NewPartnerRequestFormComponent),
   // new FormRecord('Partner Request.PartnerRequest.casedata.default', 'casedata', 'Partner Request Details', 'Case Details Tab 1', PartnerRequestCasedataComponent),
   // new FormRecord('Partner Request.PartnerRequest.action.Update Request Metrics', 'action', 'Update Request Metrics', 'Update Request Metrics', UpdateRequestMetricsFormComponent),

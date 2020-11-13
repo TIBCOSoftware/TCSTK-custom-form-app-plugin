@@ -12,7 +12,7 @@ import { Moment } from 'moment';
 })
 export class TemplateActionFormComponent extends BaseCustomFormComponent implements OnInit {
 
-  @ViewChild(MatDatepicker, {static: false}) picker: MatDatepicker<Moment>;
+  @ViewChild(MatDatepicker) picker: MatDatepicker<Moment>;
 
   constructor(public formBuilder: FormBuilder) {
     super();
