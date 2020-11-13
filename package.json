@@ -45,7 +45,7 @@
     "@angular/cli": "^10.2.0",
     "@angular/compiler-cli": "^10.2.3",
     "@angular/language-service": "^10.2.3",
-    "@tibco-tcstk/component-template": "^2.1.0-rc.1605255546845",
+    "@tibco-tcstk/component-template": "^2.1.0",
     "@types/node": "^12.19.4",
     "@webcomponents/webcomponentsjs": "^2.5.0",
     "child_process": "^1.0.2",
