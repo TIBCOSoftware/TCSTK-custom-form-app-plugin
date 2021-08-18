@@ -5,25 +5,25 @@ import { BaseCustomFormComponent } from './form-components/base-custom-form/base
 import {NewPartnerRequestFormComponent} from './sample-forms/new-partner-request-form/new-partner-request-form.component';
 import {createCustomElement} from '@angular/elements';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
-import { MatNativeDateModule, MatOptionModule, NativeDateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
-import { MatInputModule } from '@angular/material/input';
-import { MatListModule } from '@angular/material/list';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MatSelectModule } from '@angular/material/select';
-import { MatSliderModule } from '@angular/material/slider';
-import { MatStepperModule } from '@angular/material/stepper';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatTooltipModule } from '@angular/material/tooltip';
+/*import {
+  MatButtonModule,
+  MatCardModule,
+  MatDatepickerModule,
+  MatDialogModule,
+  MatIconModule, MatIconRegistry,
+  MatInputModule,
+  MatListModule,
+  MatMenuModule, MatNativeDateModule,
+  MatOptionModule, MatProgressSpinnerModule,
+  MatSelectModule, MatSliderModule, MatStepperModule,
+  MatToolbarModule,
+  MatTooltipModule, NativeDateAdapter,
+  MAT_DATE_FORMATS, MAT_DATE_LOCALE
+} from '@angular/material'; */
 import {MatMomentDateModule, MomentDateAdapter, MAT_MOMENT_DATE_FORMATS, MAT_MOMENT_DATE_ADAPTER_OPTIONS} from '@angular/material-moment-adapter';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatCheckboxModule } from '@angular/material/checkbox';
+// import {MatFormFieldModule} from '@angular/material';
+// import {MatCheckboxModule} from '@angular/material';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {FormViewerComponent} from './form-components/form-viewer/form-viewer.component';
@@ -36,8 +36,25 @@ import {TemplateActionFormComponent} from './form-components/template-action-for
 import {TemplateCasedataFormComponent} from './form-components/template-casedata-form/template-casedata-form.component';
 
 // Custom DateAdapter
-import { DateAdapter } from '@angular/material/core';
+// import {DateAdapter} from '@angular/material';
 import {HttpClientModule} from '@angular/common/http';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule, MatIconRegistry} from '@angular/material/icon';
+import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE, MatOptionModule} from '@angular/material/core';
+import {MatSelectModule} from '@angular/material/select';
+import {MatListModule} from '@angular/material/list';
+import {MatInputModule} from '@angular/material/input';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatSliderModule} from '@angular/material/slider';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 
 @Injectable()
@@ -100,7 +117,8 @@ export class CustomDateAdapter extends MomentDateAdapter {
     FormsModule,
     ReactiveFormsModule,
     MatProgressSpinnerModule,
-    HttpClientModule
+    HttpClientModule,
+    MatFormFieldModule
   ],
   exports: [MatDatepickerModule],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA],
@@ -124,7 +142,9 @@ export class CustomDateAdapter extends MomentDateAdapter {
   ],
   bootstrap: [AppComponent],
   entryComponents: [
-    BaseCustomFormComponent, FormViewerComponent, TemplateCreatorFormComponent, TemplateActionFormComponent, TemplateCasedataFormComponent, NewPartnerRequestFormComponent, PartnerRequestCasedataComponent, UpdateRequestMetricsFormComponent
+    BaseCustomFormComponent, FormViewerComponent, TemplateCreatorFormComponent, TemplateActionFormComponent,
+    TemplateCasedataFormComponent, NewPartnerRequestFormComponent,
+    PartnerRequestCasedataComponent, UpdateRequestMetricsFormComponent
   ]
 })
 
