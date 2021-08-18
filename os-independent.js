@@ -23,7 +23,7 @@ function main(){
   console.log('Running) TASK: ' + task + ' REGION:' + region);
   if(task == 'run'){
     fs.copyFileSync('./src/app/app.module.dev', './src/app/app.module.ts');
-    run('ng serve --proxy-config proxy.conf.prod.'+region+'.json --ssl true --source-map --aot');
+    run('ng serve --proxy-config proxy.conf.'+region+'.json --ssl true --source-map --aot');
   }
   if(task == 'build'){
      //cp ./src/app/app.module.build ./src/app/app.module.ts; ng build custom-form-app --prod --output-hashing=none && node build-elements.js; cp ./src/app/app.module.dev ./src/app/app.module.ts
