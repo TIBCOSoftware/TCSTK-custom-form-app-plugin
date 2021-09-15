@@ -1,12 +1,12 @@
-# TIBCO Cloud™ Starters Toolkit -- Custom Form App Plugin
+# TIBCO Cloud™ Composer - Custom Form App Plugin
 
-This app can be used to create a seperate Angular Elements Application to add custom form applications to a TIBCO Cloud™ Starter.
+This app can be used to create a seperate Angular Elements Application to add custom form applications to a TIBCO Cloud™ Composer Starters and Pattern Apps.
 
 The app can be used to display a component in the place of a form:
 
 interface:
 
-@Input(): data:any - the data object passed to the form component from TIBCO Cloud™ Starter App
+@Input(): data:any - the data object passed to the form component from TIBCO Cloud™ Composer Starters and Pattern Apps
 @Output(): formSubmitted - event raised by the form component containing output data from the form
 
 1) Create the form app plugin:
@@ -48,5 +48,5 @@ Copyright © 2021. TIBCO Software Inc.
 This file is subject to the license terms contained
 in the license file that is distributed with this file.
 
-Please see 'TIB_cloud-starters-toolkit_x.x.x_license'.pdf/.txt for details of license and dependent third party components referenced by this library.
+Please see 'TIB_cloud-composer_x.x.x_license'.pdf/.txt for details of license and dependent third party components referenced by this library.
 
